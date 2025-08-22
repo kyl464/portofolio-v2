@@ -1,3 +1,4 @@
+import Navbar from "@/components/navbar";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -18,11 +19,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className={geistSans.className}>
+        <main
+          className="
+        min-h-screen w-full
+        bg-gradient-to-r from-red-500 via-yellow-500 to-cyan-400
+        bg-[length:300%_300%]
+        animate-aurora
+        flex items-center justify-center
+      "
+        >
+          <Navbar />
+          {children}
+        </main>
       </body>
     </html>
   );
