@@ -1,32 +1,36 @@
 // src/app/layout.js
-"use client"; // PENTING!
 
 import Navbar from "@/components/navbar";
+import PageWrapper from "@/components/pageWrapper";
+import localFont from "next/font/local";
 import "./globals.css";
-import { motion } from "framer-motion";
+
+// 2. KONFIGURASI FONT LOKAL
+const gtWalsheim = localFont({
+  src: [
+    {
+      path: "../fonts/GT-Pantheon-Text-Regular-Trial.woff2",
+      weight: "400", // '400' adalah untuk 'normal'
+      style: "normal",
+    },
+    {
+      path: "../fonts/GT-Pantheon-Text-Bold-Trial.woff2",
+      weight: "700", // '700' adalah untuk 'bold'
+      style: "normal",
+    },
+  ],
+  variable: "--font-gt", // Buat CSS Variable untuk font ini
+});
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body>
-        <motion.main
-          className="
-            min-h-screen w-full
-            bg-gradient-to-r from-[#faf5ff] via-[#f5f5f5] to-[#f0fdf4]
-            bg-[length:300%_300%]
-          "
-          animate={{
-            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-          }}
-          transition={{
-            duration: 20,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-        >
+      {/* 3. TERAPKAN VARIABLE FONT BARU */}
+      <body className={gtWalsheim.variable}>
+        <PageWrapper>
           <Navbar />
           {children}
-        </motion.main>
+        </PageWrapper>
       </body>
     </html>
   );

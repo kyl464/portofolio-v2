@@ -8,7 +8,6 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-    
         spinny: {
           from: { transform: "rotate(0deg)" },
           to: { transform: "rotate(360deg)" },
@@ -16,6 +15,11 @@ module.exports = {
       },
       animation: {
         spinny: "spinny 3s linear infinite",
+      },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)"],
+        inter: ["var(--font-inter)"],
+        gt: ["var(--font-gt)"],
       },
     },
   },
