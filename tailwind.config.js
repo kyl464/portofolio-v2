@@ -8,13 +8,14 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        aurora: {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
+    
+        spinny: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
         },
       },
       animation: {
-        aurora: "aurora 20s ease infinite",
+        spinny: "spinny 3s linear infinite",
       },
     },
   },

@@ -3,8 +3,8 @@ import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
-    <div className="relative z-10 text-center pt-40">
-      <h1 className="text-4xl font-bold">Konten Halaman</h1>
+    <div className="flex flex-col items-center justify-center py-32 px-4">
+      TEST PAGE
     </div>
   );
 }
