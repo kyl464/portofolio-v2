@@ -48,7 +48,7 @@ export default function Home() {
       {/* Konten utama Anda */}
       <div className="relative z-10 text-center">
         <h1 className="text-8xl font-bold text-gray-100 leading-tight">
-          <span className="block">Hi. I'm Luvky.</span>
+          <span className="block">Hi. I&aposm Luvky.</span>
           <span className="block">A Frontend Developer.</span>
         </h1>
         <h3 className="mt-6 text-gray-300 text-lg max-w-2xl text-center  mx-auto">
