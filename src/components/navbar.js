@@ -43,7 +43,7 @@ export default function Navbar() {
                   onClick={() => setActiveNav(item.id)}
                   className={`relative z-10 px-3 py-1 rounded-full transition-colors duration-300
                     ${
-                      activeNav === item.id ? "text-gray-800" : "text-beige-500"
+                      activeNav === item.id ? "text-gray-800" : "text-[#F5F5DC]"
                     }
                   `}
                 >

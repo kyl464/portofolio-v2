@@ -15,7 +15,7 @@ export default function PageWrapper({ children }) {
         backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
       }}
       transition={{
-        duration: 10,
+        duration: 5,
         ease: "linear",
         repeat: Infinity,
       }}
