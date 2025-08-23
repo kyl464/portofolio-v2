@@ -1,6 +1,7 @@
 "use client";
 
 import Star from "@/components/star";
+import { motion } from "framer-motion";
 
 const sparkleAnimation = {
   scale: [1, 0.8, 1],
@@ -12,6 +13,28 @@ const sparkleTransition = {
   duration: 5,
   repeat: Infinity, // Mengulang animasi selamanya
   ease: "linear",
+};
+
+const textContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3, // Jeda 0.3 detik antar animasi anak
+    },
+  },
+};
+
+const textItemVariants = {
+  hidden: { y: 20, opacity: 0 }, // Mulai dari 20px di bawah & transparan
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
 };
 
 export default function Home() {
@@ -46,16 +69,27 @@ export default function Home() {
       />
 
       {/* Konten utama Anda */}
-      <div className="relative z-10 text-center">
-        <h1 className="text-8xl font-bold text-gray-100 leading-tight">
-          <span className="block">Hi. I&aposm Luvky.</span>
+      <motion.div
+        className="relative z-10 text-center"
+        variants={textContainerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1
+          className="text-8xl font-bold text-gray-100 leading-tight"
+          variants={textItemVariants}
+        >
+          <span className="block">Hi. I&apos;m Luvky.</span>
           <span className="block">A Frontend Developer.</span>
-        </h1>
-        <h3 className="mt-6 text-gray-300 text-lg max-w-2xl text-center  mx-auto">
+        </motion.h1>
+        <motion.h3
+          className="mt-6 text-gray-300 text-lg max-w-2xl text-center mx-auto"
+          variants={textItemVariants}
+        >
           Passionate about the intersection of code and design, I engineer
           seamless, user-centric web experiences.
-        </h3>
-      </div>
+        </motion.h3>
+      </motion.div>
     </div>
   );
 }
