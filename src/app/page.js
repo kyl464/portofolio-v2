@@ -9,7 +9,7 @@ export default function Home() {
           leading-tight text-center
         "
       >
-        <span className="block">Hi. I'm Luvky.</span>
+        <span className="block">Hi. I&apos;m Luvky.</span>
         <span className="block">A Frontend Developer.</span>
       </h1>
     </div>
