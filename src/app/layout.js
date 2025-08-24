@@ -1,8 +1,8 @@
 // src/app/layout.js
-import Navbar from "@/components/navbar";
-import PageWrapper from "@/components/pageWrapper";
+import ClientLayout from "@/components/ClientLayout"; // Impor komponen baru kita
 import localFont from "next/font/local";
 import "@/styles/globals.css";
+
 const gtFont = localFont({
   src: [
     {
@@ -33,10 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className={gtFont.variable}>
-        <PageWrapper>
-          <Navbar />
-          {children}
-        </PageWrapper>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

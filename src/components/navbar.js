@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import gsap from "gsap"; // 1. Impor GSAP
-import { ScrollTrigger } from "gsap/ScrollTrigger"; // 2. Impor ScrollTrigger
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const navItems = [
   { id: "#home", label: "Home" },
@@ -29,16 +29,14 @@ export default function Navbar() {
     gsap.registerPlugin(ScrollTrigger);
   }, [activeNav]);
   const handleNavClick = (e, navId) => {
-    e.preventDefault(); // Mencegah link berpindah halaman
+    e.preventDefault();
     setActiveNav(navId);
 
-    // Dapatkan instance ScrollSmoother
-    const smoother = ScrollTrigger.getById("main-smoother"); // Pastikan id ini unik
+    const smoother = ScrollTrigger.getById("main-smoother");
     if (smoother) {
       if (navId === "#home") {
-        smoother.scrollTo(0, true); // Scroll ke paling atas
-      } else {
-        smoother.scrollTo(navId, true, "top top+=100px"); // Scroll ke section dengan offset
+        smoother.scrollTo(0, true);
+        smoother.scrollTo(navId, true, "top top+=100px");
       }
     }
   };
