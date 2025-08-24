@@ -16,10 +16,15 @@ module.exports = {
           "0%, 100%": { opacity: 1, transform: "scale(1) rotate(0deg)" },
           "50%": { opacity: 0.5, transform: "scale(0.8) rotate(180deg)" },
         },
+        "gradient-roam": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         spinny: "spinny 3s linear infinite",
         sparkle: "sparkle 5s linear infinite",
+        "gradient-roam": "gradient-roam 3s ease-in-out infinite",
       },
     },
   },

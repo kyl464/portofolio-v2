@@ -2,23 +2,27 @@
 import Navbar from "@/components/navbar";
 import PageWrapper from "@/components/pageWrapper";
 import localFont from "next/font/local";
-import "./globals.css";
-
+import "@/styles/globals.css";
 const gtFont = localFont({
   src: [
     {
       path: "./fonts/GT-Reguler.woff2",
-      weight: "400", // 400 adalah standar untuk 'regular'
+      weight: "400",
       style: "normal",
     },
     {
       path: "./fonts/GT-Bold.woff2",
-      weight: "700", // 700 adalah standar untuk 'bold'
+      weight: "700",
       style: "normal",
     },
   ],
-  variable: "--font-sans", // Nama variabel CSS untuk digunakan di Tailwind
+  variable: "--font-sans",
 });
+
+export const metadata = {
+  title: "Luvky Johanes",
+  description: "Portofolio Luvky Johanes",
+};
 
 export default function RootLayout({ children }) {
   return (

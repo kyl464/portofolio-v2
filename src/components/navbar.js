@@ -1,16 +1,18 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap"; // 1. Impor GSAP
+import { ScrollTrigger } from "gsap/ScrollTrigger"; // 2. Impor ScrollTrigger
 
 const navItems = [
-  { id: "Work", label: "Work" },
-  { id: "About", label: "About" },
-  { id: "Play", label: "Play" },
-  { id: "Notes", label: "Notes" },
-  { id: "Contact", label: "Contact" },
+  { id: "#home", label: "Home" },
+  { id: "#about", label: "About" },
+  { id: "#play", label: "Play" },
+  { id: "#notes", label: "Notes" },
+  { id: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
-  const [activeNav, setActiveNav] = useState("Work");
+  const [activeNav, setActiveNav] = useState("#home");
   const [highlightStyle, setHighlightStyle] = useState({ left: 0, width: 0 });
 
   const navRef = useRef(null);
@@ -24,7 +26,22 @@ export default function Navbar() {
         width: activeItem.offsetWidth,
       });
     }
+    gsap.registerPlugin(ScrollTrigger);
   }, [activeNav]);
+  const handleNavClick = (e, navId) => {
+    e.preventDefault(); // Mencegah link berpindah halaman
+    setActiveNav(navId);
+
+    // Dapatkan instance ScrollSmoother
+    const smoother = ScrollTrigger.getById("main-smoother"); // Pastikan id ini unik
+    if (smoother) {
+      if (navId === "#home") {
+        smoother.scrollTo(0, true); // Scroll ke paling atas
+      } else {
+        smoother.scrollTo(navId, true, "top top+=100px"); // Scroll ke section dengan offset
+      }
+    }
+  };
 
   return (
     <nav className="fixed w-full z-20 top-0 start-0">
@@ -39,7 +56,7 @@ export default function Navbar() {
             {navItems.map((item) => (
               <li key={item.id} ref={(el) => itemRefs.current.set(item.id, el)}>
                 <a
-                  href="#"
+                  href={item.id}
                   onClick={() => setActiveNav(item.id)}
                   className={`relative z-10 px-3 py-1 rounded-full transition-colors duration-300
                     ${
