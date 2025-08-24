@@ -25,7 +25,7 @@ export default function SmoothScrollLayout({ children }) {
           if (targetId === "#home") {
             smoother.scrollTo(0, true);
           } else {
-            smoother.scrollTo(targetId, true, "top top+=100px");
+            smoother.scrollTo(targetId, true, "top");
           }
         });
       });

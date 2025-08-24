@@ -20,8 +20,13 @@ const gtFont = localFont({
 });
 
 export const metadata = {
-  title: "Luvky Johanes",
+  title: "Luvky Johanes • Frontend Developer",
   description: "Portofolio Luvky Johanes",
+  icons: {
+    icon: "/Logo.svg",
+    shortcut: "/Logo.svg",
+    apple: "/Logo.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
