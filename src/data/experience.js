@@ -30,4 +30,36 @@ export const experiences = [
     ],
     tech: ["React", "Express", "Vite"],
   },
+
+  {
+    role: "Product Engineer",
+    company: "Cooklet",
+    url: "#",
+    location: "Jakarta",
+    start: "2023",
+    end: "2024",
+    summary:
+      "Shipped recipe discovery and bookmark features with server-side rendering.",
+    highlights: [
+      "Launched search with query caching",
+      "Set up CI to preview PRs",
+    ],
+    tech: ["React", "Express", "Vite"],
+  },
+
+  {
+    role: "Product Engineer",
+    company: "Cooklet",
+    url: "#",
+    location: "Jakarta",
+    start: "2023",
+    end: "2024",
+    summary:
+      "Shipped recipe discovery and bookmark features with server-side rendering.",
+    highlights: [
+      "Launched search with query caching",
+      "Set up CI to preview PRs",
+    ],
+    tech: ["React", "Express", "Vite"],
+  },
 ];

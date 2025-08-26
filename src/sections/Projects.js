@@ -2,14 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import Star from "@/components/star"; // sama persis seperti di About (huruf kecil)
+import Star from "@/components/star";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/data/projects"; // dummy data sementara
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   const sectionRef = useRef(null);
 
-  // Reverse-fall untuk dekor bintang (terikat ke section → aman dengan ScrollSmoother)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -34,7 +33,6 @@ export default function Projects() {
   return (
     <section id="projects" ref={sectionRef} className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Heading: kanan (zigzag vs About yang kiri) */}
         <div className="flex items-center mb-16">
           <span className="hidden lg:block mr-6 h-[2px] flex-1 rounded-full bg-gradient-to-r from-green-300 via-teal-400 to-green-300 bg-[length:200%_200%] animate-gradient-roam" />
           <h2 className="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl text-right">
@@ -45,7 +43,6 @@ export default function Projects() {
           </h2>
         </div>
 
-        {/* Featured (ala Brittany) */}
         {featured.length > 0 && (
           <div className="space-y-12">
             {featured.map((p, idx) => (
@@ -59,7 +56,6 @@ export default function Projects() {
           </div>
         )}
 
-        {/* Grid untuk sisanya */}
         {regular.length > 0 && (
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {regular.map((p, idx) => (
@@ -68,7 +64,6 @@ export default function Projects() {
           </div>
         )}
 
-        {/* Empty state ringan */}
         {featured.length === 0 && regular.length === 0 && (
           <p className="mt-6 text-sm text-white/60">
             No projects yet — add items in <code>src/data/projects.js</code>.
@@ -76,7 +71,6 @@ export default function Projects() {
         )}
       </div>
 
-      {/* Decorative stars (subtle) + reverse-fall scroll */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 hidden md:block"

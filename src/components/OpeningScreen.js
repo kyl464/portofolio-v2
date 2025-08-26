@@ -45,14 +45,17 @@ const OpeningScreen = ({ onFinished }) => {
     if (!isIntroFinished) return;
 
     const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % texts.length);
-      if (index === texts.length - 2) {
-        clearInterval(interval);
-      }
+      setIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % texts.length;
+        if (nextIndex === texts.length - 1) {
+          clearInterval(interval);
+        }
+        return nextIndex;
+      });
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [isIntroFinished, index]);
+  }, [isIntroFinished]);
 
   useEffect(() => {
     if (index === texts.length - 1) {
@@ -83,6 +86,7 @@ const OpeningScreen = ({ onFinished }) => {
             src="/Logo-transparent.svg"
             width={60}
             height={60}
+            alt="Logo"
             style={{ objectFit: "contain" }}
           />
         </motion.div>

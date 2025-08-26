@@ -107,7 +107,7 @@ export default function ProjectCard({ project, layout = "regular", reversed }) {
     );
   }
 
-  // Regular card (grid item)
+
   return (
     <article className="group relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5">
       <div className="relative aspect-[16/9]">

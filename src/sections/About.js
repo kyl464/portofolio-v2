@@ -15,11 +15,11 @@ export default function About() {
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    // mulai gerak saat About mulai keliatan sampai About selesai
+
     offset: ["start end", "end start"],
   });
   const spring = { stiffness: 100, damping: 20, restDelta: 0.001 };
-  // gerak ke ATAS (negatif). Bedakan kecepatan biar depth terasa
+
   const upSlow = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, -120]),
     spring
@@ -68,6 +68,7 @@ export default function About() {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
+
 
   return (
     <motion.section
