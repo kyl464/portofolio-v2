@@ -5,7 +5,10 @@ import { useRef } from "react";
 import Star from "@/components/star";
 import About from "@/sections/About";
 import SmoothScrollLayout from "@/components/SmoothScrollLayout";
-
+import Projects from "@/sections/Projects";
+import Contact from "@/sections/contact";
+import Experience from "@/sections/Experience";
+import Footer from "@/sections/Footer";
 const sparkleAnimationRight = {
   scale: [1, 0.8, 1],
   opacity: [1, 0.5, 1],
@@ -72,6 +75,7 @@ export default function Home() {
       <main>
         <div className="relative z-20">
           <div
+            id="home"
             ref={heroRef}
             className="relative z-10 flex flex-col items-center justify-center min-h-screen -mt-10 overflow-hidden"
           >
@@ -209,6 +213,35 @@ export default function Home() {
           >
             <About />
           </motion.div>
+          <motion.div
+            className="min-h-screen flex items-center justify-center"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <Projects />
+          </motion.div>
+
+          <motion.div
+            className="min-h-screen flex items-center justify-center"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <Experience />
+          </motion.div>
+          <motion.div
+            className="min-h-screen flex items-center justify-center"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <Contact />
+          </motion.div>
+          <Footer />
         </div>
       </main>
     </SmoothScrollLayout>

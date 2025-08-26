@@ -17,7 +17,7 @@ export default function SmoothScrollLayout({ children }) {
       id: "main-smoother",
     });
 
-    // cleanup
+    
     return () => smoother.kill();
   }, []);
 

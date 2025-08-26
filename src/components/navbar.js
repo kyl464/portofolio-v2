@@ -8,8 +8,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const navItems = [
   { id: "#home", label: "Home" },
   { id: "#about", label: "About" },
-  { id: "#play", label: "Play" },
-  { id: "#notes", label: "Notes" },
+  { id: "#projects", label: "Projects" },
+  { id: "#experience", label: "Experience" },
   { id: "#contact", label: "Contact" },
 ];
 

@@ -1,7 +1,8 @@
 // src/app/sections/About.js
 import Image from "next/image";
 import Star from "@/components/star";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
 export default function About() {
   const technologies = [
     "JavaScript (ES6+)",
@@ -11,6 +12,26 @@ export default function About() {
     "Python",
     "C",
   ];
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    // mulai gerak saat About mulai keliatan sampai About selesai
+    offset: ["start end", "end start"],
+  });
+  const spring = { stiffness: 100, damping: 20, restDelta: 0.001 };
+  // gerak ke ATAS (negatif). Bedakan kecepatan biar depth terasa
+  const upSlow = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -120]),
+    spring
+  );
+  const upMed = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -220]),
+    spring
+  );
+  const upFast = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -320]),
+    spring
+  );
 
   const sparkleAnimationRight = {
     scale: [1, 0.8, 1],
@@ -49,27 +70,86 @@ export default function About() {
   };
 
   return (
-    <motion.section id="about" className="relative py-24 sm:py-32">
-      <Star
-        className="absolute top-1/4 left-[5%] w-8 h-8 text-white z-0"
-        animate={sparkleAnimationRight}
-        transition={sparkleTransition}
-      />
-      <Star
-        className="absolute top-1/3 right-[30%] w-12 h-12 text-[#174b46] z-0"
-        animate={sparkleAnimationLeft}
-        transition={{ ...sparkleTransition, delay: 0.5 }}
-      />
-      <Star
-        className="absolute bottom-1/6 left-[20%] w-10 h-10 text-[#174b46] z-0"
-        animate={sparkleAnimationRight}
-        transition={{ ...sparkleTransition, delay: 1 }}
-      />
-      <Star
-        className="absolute bottom-1/12 right-[10%] w-12 h-12 text-white z-0"
-        animate={sparkleAnimationLeft}
-        transition={{ ...sparkleTransition, delay: 0.5 }}
-      />
+    <motion.section
+      id="about"
+      ref={sectionRef}
+      className="relative py-24 sm:py-32"
+    >
+      <motion.div
+        className="absolute top-1/2 left-[5%] z-0"
+        style={{ y: upMed }}
+      >
+        <Star
+          className="w-8 h-8 text-white"
+          animate={sparkleAnimationRight}
+          transition={sparkleTransition}
+        />
+      </motion.div>
+      <motion.div
+        className="absolute top-1/2 right-[30%] z-0"
+        style={{ y: upFast }}
+      >
+        <Star
+          className="w-12 h-12 text-[#174b46]"
+          animate={sparkleAnimationLeft}
+          transition={{ ...sparkleTransition, delay: 0.5 }}
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-1/6 left-[20%] z-0"
+        style={{ y: upSlow }}
+      >
+        <Star
+          className="w-10 h-10 text-[#174b46]"
+          animate={sparkleAnimationRight}
+          transition={{ ...sparkleTransition, delay: 1 }}
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-1 right-[10%] z-0"
+        style={{ y: upMed }}
+      >
+        <Star
+          className="w-12 h-12 text-white"
+          animate={sparkleAnimationLeft}
+          transition={{ ...sparkleTransition, delay: 0.5 }}
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-[-50%] right-[23%] z-0"
+        style={{ y: upMed }}
+      >
+        <Star
+          className="w-10 h-10 text-[#174b46]"
+          animate={sparkleAnimationRight}
+          transition={{ ...sparkleTransition, delay: 0.5 }}
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-[-40%] left-[10%] z-0"
+        style={{ y: upMed }}
+      >
+        <Star
+          className="w-6 h-6 text-[#174b46]"
+          animate={sparkleAnimationRight}
+          transition={{ ...sparkleTransition, delay: 0.5 }}
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-[-23%] left-[53%] z-0"
+        style={{ y: upMed }}
+      >
+        <Star
+          className="w-12 h-12 text-white"
+          animate={sparkleAnimationLeft}
+          transition={{ ...sparkleTransition, delay: 0.5 }}
+        />
+      </motion.div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <motion.h2
