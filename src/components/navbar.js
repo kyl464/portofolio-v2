@@ -100,11 +100,14 @@ export default function Navbar() {
 
   return (
     <nav className="fixed w-full z-20 top-0 start-0">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto py-8">
-        <div className="items-center justify-between hidden font-bold font-2xl w-full md:flex md:w-auto">
-          <ul ref={navRef} className="relative flex items-center p-1 space-x-8">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto py-4 md:py-8">
+        <div className="items-center justify-between font-bold font-2xl w-full flex md:w-auto">
+          <ul
+            ref={navRef}
+            className="relative flex items-center p-1 space-x-3 md:space-x-8 text-xs sm:text-sm md:text-base"
+          >
             <span
-              className="absolute bg-gray-100 rounded-full h-8 transition-all duration-300 ease-in-out"
+              className="absolute bg-gray-100 rounded-full h-6 md:h-8 transition-all duration-300 ease-in-out"
               style={{ left: highlightStyle.left, width: highlightStyle.width }}
             />
             {navItems.map((item) => (
@@ -112,7 +115,7 @@ export default function Navbar() {
                 <a
                   href={item.id}
                   onClick={(e) => handleNavClick(e, item.id)}
-                  className={`relative z-10 px-3 py-1 rounded-full transition-colors duration-300 ${
+                  className={`relative z-10 px-2 md:px-3 py-1 rounded-full transition-colors duration-300 ${
                     activeNav === item.id ? "text-gray-800" : "text-[#F5F5DC]"
                   }`}
                 >

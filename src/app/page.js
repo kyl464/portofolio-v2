@@ -137,14 +137,14 @@ export default function Home() {
               animate="visible"
             >
               <motion.h1
-                className="text-8xl font-bold text-gray-100 leading-tight"
+                className="text-4xl sm:text-6xl md:text-8xl font-bold text-gray-100 leading-tight"
                 variants={textItemVariants}
               >
                 <span className="block">Hi. I&apos;m Luvky.</span>
                 <span className="block">A Frontend Developer.</span>
               </motion.h1>
               <motion.h3
-                className="mt-6 text-gray-300 text-lg max-w-2xl text-center mx-auto"
+                className="mt-6 text-gray-300 text-base md:text-lg max-w-md md:max-w-2xl text-center mx-auto px-4"
                 variants={textItemVariants}
               >
                 Passionate about the intersection of code and design, I engineer

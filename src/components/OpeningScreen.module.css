@@ -16,16 +16,22 @@
 
 
 .contentWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  flex-direction: row;
   display: flex;
   align-items: center;
   gap: 1rem; 
-  transform: scale(0.9); 
+ transform: translate(-50%, -50%) scale(0.9);
+ transform-origin: center;
+  justify-content: center;
 }
 
 .logo {
   flex-shrink: 0;
-  background-color: transparent; 
-    
+  background-color: transparent;
+  padding-left: 1rem;
 }
 
 
@@ -36,7 +42,6 @@
   display: flex;
   align-items: center;
   color: #F5F5DC;
-
 ;
 }
 

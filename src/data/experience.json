@@ -1,0 +1,58 @@
+[
+  {
+    "role": "Frontend Developer",
+    "company": "BKost",
+    "url": "#",
+    "location": "Remote",
+    "start": "2024",
+    "end": "Present",
+    "summary": "Building a modern property dashboard and smooth auth flow.",
+    "highlights": ["Reusable UI components", "Improved LCP & CLS"],
+    "tech": ["Next.js", "Tailwind", "Framer Motion"]
+  },
+  {
+    "role": "Product Engineer",
+    "company": "Cooklet",
+    "url": "#",
+    "location": "Jakarta",
+    "start": "2023",
+    "end": "2024",
+    "summary": "Shipped recipe discovery and bookmarks with SSR.",
+    "highlights": ["Query caching", "Preview builds on PR"],
+    "tech": ["React", "Vite"]
+  },
+  {
+    "role": "Product Engineer",
+    "company": "Cooklet",
+    "url": "#",
+    "location": "Jakarta",
+    "start": "2023",
+    "end": "2024",
+    "summary": "Shipped recipe discovery and bookmarks with SSR.",
+    "highlights": ["Query caching", "Preview builds on PR"],
+    "tech": ["React", "Vite"]
+  },
+  {
+    "role": "Product Engineer",
+    "company": "Cooklet",
+    "url": "#",
+    "location": "Jakarta",
+    "start": "2023",
+    "end": "2024",
+    "summary": "Shipped recipe discovery and bookmarks with SSR.",
+    "highlights": ["Query caching", "Preview builds on PR"],
+    "tech": ["React", "Vite"]
+  },
+  {
+    "role": "Product Engineer",
+    "company": "Cooklet",
+    "url": "#",
+    "location": "Jakarta",
+    "start": "2023",
+    "end": "2024",
+    "summary": "Shipped recipe discovery and bookmarks with SSR.",
+    "highlights": ["Query caching", "Preview builds on PR"],
+    "tech": ["React", "Vite"]
+  }
+  
+]

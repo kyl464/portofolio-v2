@@ -8,7 +8,7 @@ export const projects = [
       "Manage your kost with ease: tenant tracking, payments, and maintenance.",
     tech: ["NextJS", "ExpressJS", "Styled Components", "Figma", "Vercel"],
     image: {
-      src: "/projects/halcyon/cover.webp",
+      src: "",
       alt: "BKost - Kost Management App",
       width: 1200,
       height: 675,
@@ -27,7 +27,7 @@ export const projects = [
       "Personalized dashboard for your Spotify data: top artists, tracks, and recent plays.",
     tech: ["Next.js", "Express", "Spotify API"],
     image: {
-      src: "/projects/spotify-profile/cover.webp",
+      src: "",
       alt: "Spotify profile dashboard mock",
       width: 1200,
       height: 675,
@@ -42,7 +42,7 @@ export const projects = [
       "OAuth flow + REST API integration walkthrough. Deployable starter for React apps.",
     tech: ["React", "Node", "OAuth 2.0"],
     image: {
-      src: "/projects/spotify-connected/cover.webp",
+      src: "",
       alt: "OAuth tutorial thumbnail",
       width: 1200,
       height: 675,

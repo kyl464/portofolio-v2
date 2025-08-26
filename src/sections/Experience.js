@@ -3,13 +3,6 @@
 import { useRef, useState, useMemo, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
-import * as expModule from "@/data/experience";
-const RAW = Array.isArray(expModule.experiences)
-  ? expModule.experiences
-  : Array.isArray(expModule.default)
-  ? expModule.default
-  : [];
-
 const ORDER = "desc";
 const toYear = (v) => (v === "Present" ? 9999 : parseInt(v, 10) || 0);
 const sortExp = (a, b) =>
@@ -91,7 +84,7 @@ export default function Experience() {
 
   const dotY = useSpring(
     useTransform(scrollYProgress, [0, 1], ["0%", "100%"]),
-    { stiffness: 120, damping: 20, restDelta: 0.001 }
+    { stiffness: 120, damping: 20 }
   );
 
   const spring = { stiffness: 100, damping: 20, restDelta: 0.001 };
@@ -108,7 +101,40 @@ export default function Experience() {
     spring
   );
 
-  const items = useMemo(() => [...RAW].sort(sortExp), []);
+  // === DATA dari JSON (lazy load supaya ringan & aman untuk data besar) ===
+  useEffect(() => {
+    let alive = true;
+
+    const t0 = performance.now();
+    console.time("exp-json import"); // ⏱ label
+
+    import("@/data/experience.json")
+      .then((mod) => {
+        const t1 = performance.now(); // waktu selesai download module
+        const raw = Array.isArray(mod?.default)
+          ? mod.default
+          : Array.isArray(mod)
+          ? mod
+          : [];
+        const t2 = performance.now(); // (nyaris sama dg t1 karena JSON sudah diparse oleh bundler)
+        if (alive) setItems([...raw].sort(sortExp));
+
+        console.timeEnd("exp-json import");
+        console.log(
+          `[exp-json] import: ${(t1 - t0).toFixed(1)} ms | assign+setState: ${(
+            t2 - t1
+          ).toFixed(1)} ms`
+        );
+      })
+      .catch((err) => {
+        console.error("Failed to load experience.json:", err);
+      });
+
+    return () => {
+      alive = false;
+    };
+  }, []);
+  const [items, setItems] = useState([]);
   const [activeIdx, setActiveIdx] = useState(0);
   const itemRefs = useRef([]);
   const setItemRef = (el, i) => (itemRefs.current[i] = el);
@@ -172,7 +198,7 @@ export default function Experience() {
             {items.length === 0 && (
               <p className="text-sm text-white/60">
                 No experiences yet — add items in{" "}
-                <code>src/data/experience.js</code>.
+                <code>src/data/experience.json</code>.
               </p>
             )}
             {items.map((exp, i) => (

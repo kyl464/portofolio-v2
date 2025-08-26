@@ -57,7 +57,7 @@ export default function Footer() {
           </p>
 
           <a
-            href="#home"
+            href="#"
             className="mt-1 inline-flex items-center gap-2 text-xs tracking-wide text-white/70 hover:text-green-300 transition"
           >
             <span
