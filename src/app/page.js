@@ -6,9 +6,10 @@ import Star from "@/components/star";
 import About from "@/sections/About";
 import SmoothScrollLayout from "@/components/SmoothScrollLayout";
 import Projects from "@/sections/Projects";
-import Contact from "@/sections/contact";
+import Contact from "@/sections/Contact";
 import Experience from "@/sections/Experience";
 import Footer from "@/sections/Footer";
+
 const sparkleAnimationRight = {
   scale: [1, 0.8, 1],
   opacity: [1, 0.5, 1],
